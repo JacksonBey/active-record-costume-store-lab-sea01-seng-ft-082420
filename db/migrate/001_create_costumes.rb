@@ -8,4 +8,48 @@
 # In this change method, create columns with the correct names and 
 # value types according to the spec
 
-# !!! Before you run rake db:migrate, remember to fill out the other migration files -- otherwise you'll get an error resulting from the blank migration files.
+# !!! Before you run rake db:migrate, remember to fill out the other 
+# migration files -- otherwise you'll get an error resulting from the blank migration files.
+
+class CreateCostumes < ActiveRecord::Migration[5.2]
+
+#     ActiveRecord::Base.establish_connection(
+#         :adapter => "sqlite3",
+#         :database => "db/costumes.sqlite"
+#       )
+
+#     sql = <<-SQL
+#   CREATE TABLE IF NOT EXISTS costumes (
+#   id INTEGER PRIMARY KEY,
+#   name TEXT
+#   )
+# SQL
+ 
+# ActiveRecord::Base.connection.execute(sql)
+
+#     def up
+#     end
+
+#     def down
+#     end
+
+    def change
+        create_table :costumes do |t|
+            t.string :name
+            t.float :price
+            t.string :size
+            t.string :image_url
+            t.timestamps 
+        end
+    end
+    #t.timestamps
+
+end
+
+# def change
+#     create_table :candies do |t|
+#       t.string :name
+#       t.integer :calories
+#       t.timestamps
+#     end
+#   end
